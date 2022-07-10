@@ -1,0 +1,24 @@
+name: Build mod
+on:
+  workflow_dispatch: 
+
+jobs:
+  build_mod:
+    runs-on: ubuntu-latest
+    outputs:
+      dbname: ${{ steps.dbname.outputs.dbname }}
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: brew install ffmpeg
+    - name: Generate assets
+      run: ./scripts/generate.sh
+    - name: Upload assets
+      uses: actions/upload-artifact@v3
+      with:
+        name: no_splash_videos
+        if-no-files-found: error
+        path: |
+          *
+          !.github
+          !scripts
