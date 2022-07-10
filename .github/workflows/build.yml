@@ -5,8 +5,6 @@ on:
 jobs:
   build_mod:
     runs-on: ubuntu-latest
-    outputs:
-      dbname: ${{ steps.dbname.outputs.dbname }}
     steps:
     - uses: actions/checkout@v2
     - name: Install dependencies
