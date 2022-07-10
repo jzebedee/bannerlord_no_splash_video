@@ -18,5 +18,6 @@ jobs:
         if-no-files-found: error
         path: |
           *
+          !.git
           !.github
           !scripts
