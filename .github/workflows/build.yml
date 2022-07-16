@@ -6,13 +6,13 @@ jobs:
   build_submodule:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Setup repo
+      uses: actions/checkout@v2
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1.1
+    - run: cd ${{ GITHUB_WORKSPACE }}
     - name: Download Bannerlord dependencies
-      run: |
-        cd $GITHUB_WORKSPACE
-        Invoke-WebRequest -Uri ${{ secrets.BANNERLORD_ASSETS_URL }} -OutFile bannerlord.zip
+      run: Invoke-WebRequest -Uri ${{ secrets.BANNERLORD_ASSETS_URL }} -OutFile bannerlord.zip
     - name: Unpack Bannerlord dependencies
       run: Expand-Archive bannerlord.zip -DestinationPath bannerlord\
     - name: Build
