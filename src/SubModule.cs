@@ -16,18 +16,5 @@ namespace SkipSplashVideos
 
             _harmony.Value.PatchAll();
         }
-
-        protected override void OnSubModuleUnloaded()
-        {
-            base.OnSubModuleUnloaded();
-
-            _harmony.Value.UnpatchAll(HarmonyId);
-        }
-
-        protected override void OnBeforeInitialModuleScreenSetAsRoot()
-        {
-            base.OnBeforeInitialModuleScreenSetAsRoot();
-
-        }
     }
 }
