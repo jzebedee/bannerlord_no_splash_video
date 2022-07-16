@@ -3,6 +3,27 @@ on:
   workflow_dispatch: 
 
 jobs:
+  build_submodule:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: microsoft/setup-msbuild@v1
+    - uses: NuGet/setup-nuget@v1.0.2
+    - name: Download Bannerlord dependencies
+      run: |
+        cd $GITHUB_WORKSPACE
+        curl.exe -s ${{ secrets.BANNERLORD_ASSETS_URL }} -o bannerlord.zip
+    - name: Unpack Bannerlord dependencies
+      run: Expand-Archive bannerlord.zip -DestinationPath bannerlord\
+    - name: Build
+      run: MsBuild.exe -noLogo -r -p:Configuration=Release -p:GameFolder=bannerlord\
+    - name: Upload assets
+      uses: actions/upload-artifact@v3
+      with:
+        name: SkipSplashVideos_Mod
+        if-no-files-found: error
+        path: bannerlord/Modules/SkipSplashVideos/*
+        
   build_mod:
     runs-on: ubuntu-latest
     steps:
@@ -14,10 +35,12 @@ jobs:
     - name: Upload assets
       uses: actions/upload-artifact@v3
       with:
-        name: no_splash_videos
+        name: SkipSplashVideos_Files
         if-no-files-found: error
         path: |
           *
           !.git
           !.github
           !scripts
+          !src
+          !*.sln
