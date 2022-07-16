@@ -27,7 +27,7 @@ jobs:
       with:
         name: SkipSplashVideos_Mod
         if-no-files-found: error
-        path: bannerlord/Modules/SkipSplashVideos/*
+        path: bannerlord/Modules/SkipSplashVideos
         
   build_mod:
     runs-on: ubuntu-latest
