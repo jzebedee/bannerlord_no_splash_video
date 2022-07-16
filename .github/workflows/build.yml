@@ -27,7 +27,11 @@ jobs:
       with:
         name: SkipSplashVideos_Mod
         if-no-files-found: error
-        path: bannerlord/Modules/SkipSplashVideos
+        path: |
+          bannerlord/Modules/
+          !bannerlord/Modules/Native
+          !bannerlord/Modules/SandBox
+          !bannerlord/Modules/StoryMode
         
   build_mod:
     runs-on: ubuntu-latest
