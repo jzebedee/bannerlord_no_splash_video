@@ -12,7 +12,7 @@ jobs:
     - name: Download Bannerlord dependencies
       run: |
         cd $GITHUB_WORKSPACE
-        curl.exe -L -s ${{ secrets.BANNERLORD_ASSETS_URL }} -o bannerlord.zip
+        Invoke-WebRequest -Uri ${{ secrets.BANNERLORD_ASSETS_URL }} -OutFile bannerlord.zip
     - name: Unpack Bannerlord dependencies
       run: Expand-Archive bannerlord.zip -DestinationPath bannerlord\
     - name: Build
