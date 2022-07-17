@@ -1,4 +1,5 @@
 # No Splash Videos - Skip Splash Screen
+
 Removes the splash videos in Mount &amp; Blade II Bannerlord
 
 There are two versions:
