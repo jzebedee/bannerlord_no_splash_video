@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using System;
+using System.Reflection;
 using TaleWorlds.MountAndBlade;
 
 namespace SkipSplashVideos
@@ -14,7 +15,7 @@ namespace SkipSplashVideos
         {
             base.OnSubModuleLoad();
 
-            _harmony.Value.PatchAll();
+            _harmony.Value.PatchAll(Assembly.GetExecutingAssembly());
         }
     }
 }
