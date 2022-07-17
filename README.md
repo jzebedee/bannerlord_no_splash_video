@@ -1,9 +1,17 @@
 # No Splash Videos - Skip Splash Screen
-Removes the splash videos in Mount &amp; Blade Bannerlord II
+Removes the splash videos in Mount &amp; Blade II Bannerlord
+
+There are two versions:
+* A mod version, which requires [Harmony](https://www.nexusmods.com/mountandblade2bannerlord/mods/2006) and must be activated in the launcher
+* A file version, which overwrites the splash videos with empty videos
+
+If you use Harmony, install the mod version. Otherwise, install the file version.
 
 ## Installation
 
 Install with any mod manager.
+
+Requires [Harmony](https://www.nexusmods.com/mountandblade2bannerlord/mods/2006) if using the mod version.
 
 ### Manual installation
 
